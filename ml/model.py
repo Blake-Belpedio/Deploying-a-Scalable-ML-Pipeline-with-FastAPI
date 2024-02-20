@@ -22,7 +22,8 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
    clf = RandomForestClassifier(random_state = 42)
-    clf.fit(X_train,y_train)
+   clf.fit(X_train,y_train)
+   return clf 
     pass
 
 
@@ -53,7 +54,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : Random Forest Classifier
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -62,7 +63,8 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    # TODO: implement the function
+    prediction = model.predict(X)
+    return prediction
     pass
 
 def save_model(model, path):
@@ -75,12 +77,14 @@ def save_model(model, path):
     path : str
         Path to save pickle file.
     """
-    # TODO: implement the function
+    with open(path,'wb') as file:
+        pickle.dump(model,file)
     pass
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
-    # TODO: implement the function
+   with open(path,'rb') as file:
+       return pickle.load(file)
     pass
 
 
@@ -122,10 +126,13 @@ def performance_on_categorical_slice(
     """
     # TODO: implement the function
     X_slice, y_slice, _, _ = process_data(
-        # your code here
-        # for input data, use data in column given as "column_name", with the slice_value 
-        # use training = False
+        data,
+        categorical_features = categorical_features,
+        label = label,
+        training = False,
+        encoder = encoder,
+        lb = lb
     )
-    preds = # your code here to get prediction on X_slice using the inference function
+    preds = inference(model,X_slice)
     precision, recall, fbeta = compute_model_metrics(y_slice, preds)
     return precision, recall, fbeta
