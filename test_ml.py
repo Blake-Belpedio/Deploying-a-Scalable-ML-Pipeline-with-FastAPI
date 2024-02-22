@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # TODO: implement the first test. Change the function name and input as needed
-def test_model_verification():
+def test_Random_Forest_model_verification():
     
     """
     Verfies that model type returned from pipeline is a Random Forest
