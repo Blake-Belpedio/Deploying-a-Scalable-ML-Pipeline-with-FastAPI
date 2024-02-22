@@ -19,12 +19,11 @@ def train_model(X_train, y_train):
     Returns
     -------
     model
-        Trained machine learning model.
-    """
-   clf = RandomForestClassifier(random_state = 42)
-   clf.fit(X_train,y_train)
-   return clf 
-    pass
+        Trained machine learning model."""
+    
+    clf = RandomForestClassifier(random_state = 42)
+    clf.fit(X_train,y_train)
+    return clf
 
 
 def compute_model_metrics(y, preds):
@@ -65,7 +64,6 @@ def inference(model, X):
     """
     prediction = model.predict(X)
     return prediction
-    pass
 
 def save_model(model, path):
     """ Serializes model to a file.
@@ -83,9 +81,8 @@ def save_model(model, path):
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
-   with open(path,'rb') as file:
+    with open(path,'rb') as file:
        return pickle.load(file)
-    pass
 
 
 def performance_on_categorical_slice(

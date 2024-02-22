@@ -16,7 +16,7 @@ from ml.model import (
 project_path = os.getcwd()
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
-data = pd.read_csv('data_path')
+data = pd.read_csv(data_path)
 
 # TODO: split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -39,7 +39,7 @@ cat_features = [
 # TODO: use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
     train,
-    catergorical_features = cat_features,
+    categorical_features = cat_features,
     label = 'salary',
     training = True
     )
@@ -68,7 +68,7 @@ model = load_model(
 ) 
 
 # TODO: use the inference function to run the model inferences on the test dataset.
-preds = inference(Random_Forest, X_test)
+preds = inference(model, X_test)
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
@@ -88,8 +88,8 @@ for col in cat_features:
             'salary',
             encoder,
             lb,
-            random_forest
+            model
         )
         with open("slice_output.txt", "a") as f:
-        print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
-        print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}", file=f)
+            print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
+            print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}", file=f)
