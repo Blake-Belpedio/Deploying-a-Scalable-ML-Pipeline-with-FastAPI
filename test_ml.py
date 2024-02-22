@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # TODO: implement the first test. Change the function name and input as needed
-def model_verification():
+def test_model_verification():
     
     """
     Verfies that model type returned from pipeline is a Random Forest
@@ -48,7 +48,7 @@ def model_verification():
 
 
 # TODO: implement the second test. Change the function name and input as needed
-def input_data_length():
+def test_input_data_length():
     """
     Checks that input length is greater than 3,000
     """
@@ -60,7 +60,7 @@ def input_data_length():
 
 
 # TODO: implement the third test. Change the function name and input as needed
-def precision_output():
+def test_precision_output():
     """
     Ensure precision output to slice_ouput was excuted sucessfully
     """
