@@ -28,3 +28,5 @@ Post and Get methods are integrated in local_api.py. Uvicorn is used to access t
 Credit:
 This project was completed with the help of Udacity and Western Governors University (WGU)
 
+Github Link to project: https://github.com/Blake-Belpedio/Deploying-a-Scalable-ML-Pipeline-with-FastAPI.git
+
